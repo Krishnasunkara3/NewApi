@@ -1,0 +1,121 @@
+krishna@stl-6154:~/GitCommands$ touch file1.txt
+krishna@stl-6154:~/GitCommands$ git init
+Initialized empty Git repository in /home/krishna/GitCommands/.git/
+krishna@stl-6154:~/GitCommands$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	file1.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+krishna@stl-6154:~/GitCommands$ git add .
+krishna@stl-6154:~/GitCommands$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   file1.txt
+
+krishna@stl-6154:~/GitCommands$ git commit -m "first commit"
+[master (root-commit) 05cfd8f] first commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file1.txt
+krishna@stl-6154:~/GitCommands$ git status
+On branch master
+nothing to commit, working tree clean
+krishna@stl-6154:~/GitCommands$ vi file1.txt
+krishna@stl-6154:~/GitCommands$ cat file1.txt
+inserting 
+three
+lines 
+krishna@stl-6154:~/GitCommands$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   file1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+krishna@stl-6154:~/GitCommands$ git add .
+krishna@stl-6154:~/GitCommands$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   file1.txt
+
+krishna@stl-6154:~/GitCommands$ git commit -m "second commit"
+[master 82f2f69] second commit
+ 1 file changed, 3 insertions(+)
+krishna@stl-6154:~/GitCommands$ touch file2.txt
+krishna@stl-6154:~/GitCommands$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	file2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+krishna@stl-6154:~/GitCommands$ git add .
+krishna@stl-6154:~/GitCommands$ git commit -m "third commit"
+[master 95fb4c1] third commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file2.txt
+krishna@stl-6154:~/GitCommands$ git status
+On branch master
+nothing to commit, working tree clean
+krishna@stl-6154:~/GitCommands$ git log
+commit 95fb4c19fa9b74b9052597e3a7307cc0ac650437 (HEAD -> master)
+Author: Krishnasunkara3 <venkatakrishna.sunkara@tibilsolutions.com>
+Date:   Fri Aug 5 11:38:48 2022 +0530
+
+    third commit
+
+commit 82f2f697b834e7603d5b6c44d8bb1a05c4ef531b
+Author: Krishnasunkara3 <venkatakrishna.sunkara@tibilsolutions.com>
+Date:   Fri Aug 5 11:37:32 2022 +0530
+
+    second commit
+
+commit 05cfd8f053cf88eda851a56371732d07cd63b30b
+Author: Krishnasunkara3 <venkatakrishna.sunkara@tibilsolutions.com>
+Date:   Fri Aug 5 11:35:30 2022 +0530
+
+    first commit
+krishna@stl-6154:~/GitCommands$ touch file3.txt
+krishna@stl-6154:~/GitCommands$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	file3.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+krishna@stl-6154:~/GitCommands$ git add .
+krishna@stl-6154:~/GitCommands$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   file3.txt
+
+krishna@stl-6154:~/GitCommands$ git stash
+Saved working directory and index state WIP on master: 95fb4c1 third commit
+krishna@stl-6154:~/GitCommands$ git status
+On branch master
+nothing to commit, working tree clean
+krishna@stl-6154:~/GitCommands$ git stash list
+stash@{0}: WIP on master: 95fb4c1 third commit
+krishna@stl-6154:~/GitCommands$ git stash pop
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   file3.txt
+
+Dropped refs/stash@{0} (c9d794fcf3014ae347addd45cfacffa6e575c9e0)
+krishna@stl-6154:~/GitCommands$ git stash
+Saved working directory and index state WIP on master: 95fb4c1 third commit
+krishna@stl-6154:~/GitCommands$ git stash drop
+Dropped refs/stash@{0} (ed0c5609cada2b50f00174705cb234e73f41d5aa)
+
