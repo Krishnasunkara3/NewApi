@@ -4,6 +4,11 @@ Initialized empty Git repository in /home/krishna/GitCommands/.git/
 krishna@stl-6154:~/GitCommands$ git status
 On branch master
 
+
+
+
+#Testing the git  
+
 No commits yet
 
 Untracked files:
